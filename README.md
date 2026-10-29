@@ -1,6 +1,24 @@
 # ⚠️ AI GENERATED CONTENT
 
 ## Témoins de Jéhovah : proclamateurs, baptêmes et flux, 1914-2050 / Jehovah's Witnesses: publishers, baptisms and flows, 1914-2050
+
+---
+
+## 🔒 High-Anonymity Support Group (SimpleX Chat)
+
+If you value data privacy and security as much as this project does, you are welcome to join our private support group. 
+
+This group was specifically created for **PIMOs (Physically In, Mentally Out)** and anyone who needs a safe space to connect without leaving a digital footprint. We host this group on **SimpleX Chat** because it is currently the most secure platform available:
+* **Zero Identifiers:** No phone number, no email, and no user ID required to register.
+* **Maximum Privacy:** It prevents metadata tracking and ensures total anonymity.
+
+To connect with us safely, scan the QR code below or click the invitation link:
+
+<img src="simplex-qrcode.png" alt="SimpleX QR Code" width="200"/>
+
+👉 **[Link: Click here to join the group](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)**
+
+
 ### Version 4
 
 **FR :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet nécessaire à l'ouverture (Chart.js 4.4.1 est chargé depuis cdnjs.cloudflare.com). Boutons drapeaux en haut : français / anglais.
