@@ -27,3 +27,10 @@ New in version 4 (three sections under the main chart):
 
 ### Version 3
 Décès, exclusions, abandons volontaires et perte nette (séries annuelles officielles 1962-2025, parties estimées signalées), correction de l'affichage des sorties (plus de plancher à zéro, lissage optionnel sur 3 ans), page bilingue.
+
+## Disclaimer & Legal Notice
+
+1. **Independence:** This project is a purely academic and independent statistical study. It is not affiliated with, authorized, maintained, sponsored, or endorsed by the Watch Tower Bible and Tract Society or any legal entity associated with Jehovah's Witnesses.
+2. **Data Accuracy:** Historical data is gathered from publicly available official reports. Future projections (up to 2050) and financial estimates are theoretical mathematical models provided for informational purposes only. They must not be interpreted as definitive facts or official statements.
+3. **Data Distinction:** The project explicitly identifies and distinguishes official organization data from the author's estimates, interpolations, or financial deductions through clear labels and visual annotations. 
+4. **Limitation of Liability:** The author disclaims any responsibility or liability for the interpretation, use, or consequences of using the data, charts, and models presented on this website.
