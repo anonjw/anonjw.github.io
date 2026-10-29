@@ -1,3 +1,5 @@
+![Visites](https://komarev.com)
+
 # [website](https://anonjw.github.io/)
 
 ## 🔒 High-Anonymity Support Group (SimpleX Chat)
