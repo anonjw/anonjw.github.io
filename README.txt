@@ -1,3 +1,5 @@
+# ⚠️ AI GENERATED CONTENT
+
 Témoins de Jéhovah : proclamateurs, baptêmes et flux, 1914-2050 / Jehovah's Witnesses: publishers, baptisms and flows, 1914-2050
 Version 4
 
