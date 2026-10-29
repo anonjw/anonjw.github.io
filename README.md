@@ -1,9 +1,3 @@
-# ⚠️ AI GENERATED CONTENT
-
-## Témoins de Jéhovah : proclamateurs, baptêmes et flux, 1914-2050 / Jehovah's Witnesses: publishers, baptisms and flows, 1914-2050
-
----
-
 ## 🔒 High-Anonymity Support Group (SimpleX Chat)
 
 If you value data privacy and security as much as this project does, you are welcome to join our private support group. 
@@ -18,6 +12,12 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 **[Link: Click here to join the group](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)**
 
+
+---
+
+# ⚠️ AI GENERATED CONTENT
+
+## Témoins de Jéhovah : proclamateurs, baptêmes et flux, 1914-2050 / Jehovah's Witnesses: publishers, baptisms and flows, 1914-2050
 
 ### Version 4
 
