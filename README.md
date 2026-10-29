@@ -1,5 +1,3 @@
-![Visites](https://komarev.com)
-
 # [website](https://anonjw.github.io/)
 
 ## 🔒 High-Anonymity Support Group (SimpleX Chat)
@@ -56,3 +54,5 @@ Décès, exclusions, abandons volontaires et perte nette (séries annuelles offi
 2. **Data Accuracy:** Historical data is gathered from publicly available official reports. Future projections (up to 2050) and financial estimates are theoretical mathematical models provided for informational purposes only. They must not be interpreted as definitive facts or official statements.
 3. **Data Distinction:** The project explicitly identifies and distinguishes official organization data from the author's estimates, interpolations, or financial deductions through clear labels and visual annotations. 
 4. **Limitation of Liability:** The author disclaims any responsibility or liability for the interpretation, use, or consequences of using the data, charts, and models presented on this website.
+
+![Visites](https://seeyoufarm.com)
