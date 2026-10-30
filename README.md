@@ -14,7 +14,7 @@ This group was specifically created for **PIMOs (Physically In, Mentally Out)** 
 
 To connect with us safely, scan the QR code below or click the invitation link:
 
-<img src="simplex-qrcode.png" alt="SimpleX QR Code" width="200"/>
+[<img src="simplex-qrcode.png" alt="SimpleX QR Code" width="200"/>](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)
 
 👉 **[Link: Click here to join the group](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)**
 
