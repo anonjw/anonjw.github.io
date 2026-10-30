@@ -37,7 +37,7 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Aller aux informations et liens du groupe de soutien sécurisé (SimpleX Chat)](#simplex)*
 
-**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet non requise à l'ouverture (`chart.umd.js` 4.4.1 est désormais hébergé localement). Boutons drapeaux en haut : français / anglais / espagnol.
+**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet non requise à l'ouverture (`chart.umd.js` 4.6.1 est désormais hébergé localement). Boutons drapeaux en haut : français / anglais / espagnol.
 
 ### Historique des versions
 
@@ -72,7 +72,7 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Go to the secure support group links and info (SimpleX Chat)](#simplex)*
 
-**Instructions:** open `index.html` in a browser (double-click). Internet connection not required on opening (`chart.umd.js` 4.4.1 is now hosted locally). Flag buttons at the top: French / English / Spanish.
+**Instructions:** open `index.html` in a browser (double-click). Internet connection not required on opening (`chart.umd.js` 4.6.1 is now hosted locally). Flag buttons at the top: French / English / Spanish.
 
 ### Version History
 
@@ -107,7 +107,7 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Ir a la información y enlaces del grupo de apoyo seguro (SimpleX Chat)](#simplex)*
 
-**Instrucciones:** abra `index.html` en un navegador (doble clic). No se requiere conexión a internet para abrirlo (`chart.umd.js` 4.4.1 ahora está alojado localmente). Botones de banderas en la parte superior: francés / inglés / español.
+**Instrucciones:** abra `index.html` en un navegador (doble clic). No se requiere conexión a internet para abrirlo (`chart.umd.js` 4.6.1 ahora está alojado localmente). Botones de banderas en la parte superior: francés / inglés / español.
 
 ### Historial de versiones
 
