@@ -37,13 +37,14 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Aller aux informations et liens du groupe de soutien sécurisé (SimpleX Chat)](#simplex)*
 
-**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet nécessaire à l'ouverture (Chart.js 4.4.1 est chargé depuis cdnjs.cloudflare.com). Boutons drapeaux en haut : français / anglais / espagnol.
+**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet non requise à l'ouverture (`chart.umd.js` 4.4.1 est désormais hébergé localement). Boutons drapeaux en haut : français / anglais / espagnol.
 
 ### Historique des versions
 
 **Nouveautés de la version 7 :**
 - **Graphique principal :** deux nouvelles données sélectionnables, « Heures de prédication » (total annuel : officiel 1962-2023, estimé ensuite car les proclamateurs ne déclarent plus leurs heures) et « Heures par baptême ». Projection 2026-2050 par modèle, jamais lissées.
 - **Nouvel événement 2023 :** fin de la déclaration des heures par les proclamateurs.
+- **Technique :** le fichier `chart.umd.js` est désormais hébergé localement.
 
 **Nouveautés de la version 6 :**
 - **Traduction complète en espagnol** (interface, graphiques, tableaux, événements, sources et méthodologie) ; nouveau drapeau en haut à droite.
@@ -71,13 +72,14 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Go to the secure support group links and info (SimpleX Chat)](#simplex)*
 
-**Instructions:** open `index.html` in a browser (double-click). An internet connection is needed on opening (Chart.js 4.4.1 is loaded from cdnjs.cloudflare.com). Flag buttons at the top: French / English / Spanish.
+**Instructions:** open `index.html` in a browser (double-click). Internet connection not required on opening (`chart.umd.js` 4.4.1 is now hosted locally). Flag buttons at the top: French / English / Spanish.
 
 ### Version History
 
 **New in version 7:**
 - **Main chart:** two new selectable data types, "Preaching hours" (annual total: official 1962-2023, estimated afterwards because publishers no longer report hours) and "Hours per baptism". 2026-2050 projection by model, never smoothed.
 - **New 2023 event:** publishers stop reporting hours.
+- **Technical:** the `chart.umd.js` file is now hosted locally.
 
 **New in version 6:**
 - **Full Spanish translation** (interface, charts, tables, events, sources and methodology); new flag button at the top right.
@@ -105,13 +107,14 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Ir a la información y enlaces del grupo de apoyo seguro (SimpleX Chat)](#simplex)*
 
-**Instrucciones:** abra `index.html` en un navegador (doble clic). Se necesita conexión a internet para abrirlo (Chart.js 4.4.1 se carga desde cdnjs.cloudflare.com). Botones de banderas en la parte superior: francés / inglés / español.
+**Instrucciones:** abra `index.html` en un navegador (doble clic). No se requiere conexión a internet para abrirlo (`chart.umd.js` 4.4.1 ahora está alojado localmente). Botones de banderas en la parte superior: francés / inglés / español.
 
 ### Historial de versiones
 
 **Novedades de la versión 7:**
 - **Gráfico principal:** dos nuevos datos seleccionables, «Horas de predicación» (total anual: oficial 1962-2023, estimado después porque los publicadores ya no informan sus horas) y «Horas por bautismo». Proyección 2026-2050 por modelo, nunca suavizada.
 - **Nuevo evento 2023:** fin del informe de horas por los publicadores.
+- **Técnico:** el archivo `chart.umd.js` ahora está alojado localmente.
 
 **Novedades de la versión 6:**
 - **Traducción completa al español** (interfaz, gráficos, tablas, eventos, fuentes y metodología); nuevo botón de bandera arriba a la derecha.
