@@ -19,59 +19,96 @@
 </div>
 <p class="intro" data-t="intro"></p>
 
-<div class="cap" data-t="cap1" style="margin-top:12px"></div>
-<div class="bt" id="gr"></div>
-<div class="cap" data-t="cap2"></div>
-<div class="bt" id="gm"></div>
-<div class="cap" data-t="capScale"></div>
-<div class="bt" id="md"></div>
-<div class="bt" style="margin-top:8px;align-items:center">
-<label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--text-secondary)"><input type="checkbox" id="bd"><span data-t="band"></span></label>
-<label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--text-secondary)"><input type="checkbox" id="sm" checked><span data-t="smooth"></span></label>
-<button id="clr" data-t="clr"></button>
+<nav class="tabs" id="tabs" role="tablist"></nav>
+<div class="toolbar">
+<button id="shareBtn" data-t="shareBtn"></button>
+<button id="dlBtn" data-t="dlBtn"></button>
 </div>
 
-<div class="panel">
-<div class="ph"><b data-t="pTitle"></b><span id="plab"></span></div>
-<input type="range" id="pr" min="0" max="2" step="0.1" value="1" aria-label="Intensité / Intensity">
-<div class="ticks"><span data-t="t0"></span><span data-t="t1"></span><span data-t="t2"></span></div>
-<p class="hint" data-t="hint"></p>
-<div id="ro" style="margin-top:8px"></div>
-</div>
+<!-- Onglet : évolution (graphique principal) -->
+<div class="tabpanel" id="tab-evolution" data-tab="evolution" role="tabpanel">
+<div class="kpis" id="kpis"></div>
+
+<div class="cap" data-t="capPresets"></div>
+<div class="bt" id="pv"></div>
+<div class="projbar"><span data-t="projLabel"></span><div class="bt" id="pi"></div></div>
 
 <div class="chartbox"><canvas id="c" role="img" aria-label="Chart / Graphique">Chart.</canvas></div>
+<div class="legend" id="leg"></div>
+<div class="notice" id="unitnote" hidden></div>
 
 <div class="cap" data-t="capSum"></div>
 <div id="sum"></div>
-<div class="cap" data-t="capEv"></div>
-<div id="evl"></div>
 
+<div class="cap" data-t="evKey"></div>
+<div id="evl"></div>
+<details class="fold"><summary id="evmoreS"></summary><div id="evmore"></div></details>
+
+<details class="fold">
+<summary data-t="custTitle"></summary>
+<div class="foldbody">
+<div class="cap" data-t="cap1"></div>
+<div id="gr"></div>
+<div class="cap" data-t="cap2"></div>
+<div id="gm"></div>
+<div class="cap" data-t="capScale"></div>
+<div class="bt" id="md"></div>
+<div class="bt options">
+<label><input type="checkbox" id="bd"><span data-t="band"></span></label>
+<label><input type="checkbox" id="sm" checked><span data-t="smooth"></span></label>
+<button id="clr" data-t="clr"></button>
+</div>
+</div>
+</details>
+
+<details class="fold">
+<summary data-t="modelTitle"></summary>
+<div class="foldbody">
+<div class="ph"><b data-t="pTitle"></b><span id="plab"></span></div>
+<input type="range" id="pr" min="0" max="2" step="0.1" value="1" aria-label="Intensité / Intensity / Intensidad">
+<div class="ticks"><span data-t="t0"></span><span data-t="t1"></span><span data-t="t2"></span></div>
+<p class="hint" data-t="hint"></p>
+<div id="ro"></div>
+</div>
+</details>
+
+<p class="note" data-t="note"></p>
+</div>
+
+<!-- Onglet : congrégations -->
+<div class="tabpanel" id="tab-congregations" data-tab="congregations" role="tabpanel" hidden>
 <h2 data-t="hCg"></h2>
 <p class="intro" data-t="cgIntro"></p>
-<div class="chartbox"><canvas id="cgc" role="img" aria-label="Congrégations / Congregations">Chart.</canvas></div>
+<div class="chartbox"><canvas id="cgc" role="img" aria-label="Congrégations / Congregations / Congregaciones">Chart.</canvas></div>
 <div id="cgsum" style="margin-top:12px"></div>
 <details class="doc" style="margin-top:10px"><summary data-t="cgAll" style="cursor:pointer;font-size:14px"></summary><div id="cgtab"></div></details>
+</div>
 
+<!-- Onglet : r/exjw -->
+<div class="tabpanel" id="tab-reddit" data-tab="reddit" role="tabpanel" hidden>
 <h2 data-t="hRx"></h2>
 <p class="intro" data-t="rxIntro"></p>
 <div class="bt" id="rxmd"></div>
 <div class="chartbox" style="height:400px"><canvas id="rxc" role="img" aria-label="r/exjw">Chart.</canvas></div>
 <div id="rxsum" style="margin-top:12px"></div>
 <div class="doc" id="rxtab"></div>
+</div>
 
+<!-- Onglet : dons -->
+<div class="tabpanel" id="tab-dons" data-tab="dons" role="tabpanel" hidden>
 <h2 data-t="hDn"></h2>
 <p class="intro" data-t="dnIntro"></p>
 <div class="cap" data-t="dnYear"></div>
 <div class="bt" id="dny"></div>
-<div class="chartbox" style="height:440px"><canvas id="dnc" role="img" aria-label="Dons par région / Donations by region">Chart.</canvas></div>
+<div class="chartbox" style="height:440px"><canvas id="dnc" role="img" aria-label="Dons par région / Donations by region / Donativos por región">Chart.</canvas></div>
 <div id="dnsum" style="margin-top:12px"></div>
 <div class="panel"><div class="ph"><b data-t="dnChk"></b></div><div id="dnck" style="margin-top:8px"></div><p class="hint" data-t="dnWarn"></p></div>
+</div>
 
-<p class="note" data-t="note"></p>
-
+<!-- Onglet : sources et méthodologie (contenu injecté par app.js) -->
+<div class="tabpanel" id="tab-sources" data-tab="sources" role="tabpanel" hidden>
 <section id="methode" class="doc"></section>
-
-
+</div>
 </main>
 
 <script src="js/vendor/chart.umd.js"></script>
@@ -100,6 +137,7 @@
 <script src="js/ui/section-congregations.js"></script>
 <script src="js/ui/section-reddit.js"></script>
 <script src="js/ui/section-donations.js"></script>
+<script src="js/ui/tabs.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

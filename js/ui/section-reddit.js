@@ -136,4 +136,5 @@ function buildRx() {
     const d = i ? (s.v / Y[i - 1].v - 1) * 100 : null;
     return `<tr><td>${s.y}${s.y === 2026 ? ' *' : ''}</td><td>${n0(Math.round(s.v / 100) * 100)}</td><td>${i ? (s.v - Y[i - 1].v > 0 ? '+' : s.v - Y[i - 1].v < 0 ? '−' : '') + n0(Math.abs(Math.round((s.v - Y[i - 1].v) / 100) * 100)) : '—'}</td><td>${i ? sgn(d) : '—'}</td><td>${tr(s.b)}</td></tr>`;
   }).join('') + '</table>';
+  writeHash();
 }

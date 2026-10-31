@@ -5,7 +5,7 @@
 
 const CHART_ERROR = '<div class="err">Chart.js n’a pas pu être chargé (js/vendor/chart.umd.js) / could not be loaded / no se pudo cargar.</div>';
 
-// Applique la langue courante : textes, drapeaux, méthodologie, événements, puis reconstruit tous les graphiques.
+// Applique la langue courante : textes, drapeaux, méthodologie, événements, puis reconstruit l'onglet affiché.
 function applyLang() {
   document.documentElement.lang = L;
   document.documentElement.dataset.lang = L;
@@ -18,13 +18,15 @@ function applyLang() {
     b.style.opacity = a ? 1 : .55;
   });
   $('methode').innerHTML = DOCS[L];
-  $('evl').innerHTML = EVENT_YEARS.map((y, i) => `<p class="ev"><b>${i + 1}</b>${y} · ${tr('events')[i]}</p>`).join('');
+  // Repères numérotés du graphique, puis les autres événements (repliés).
+  const ev = tr('events');
+  $('evl').innerHTML = KEY_EVENTS.map((ei, n) => `<p class="ev"><b>${n + 1}</b>${EVENT_YEARS[ei]} · ${ev[ei]}</p>`).join('');
+  const others = EVENT_YEARS.map((y, i) => i).filter(i => !KEY_EVENTS.includes(i));
+  $('evmoreS').textContent = tr('evMore').replace('{n}', others.length);
+  $('evmore').innerHTML = others.map(i => `<p class="ev plain">${EVENT_YEARS[i]} · ${ev[i]}</p>`).join('');
   mkButtons();
   paint();
-  build();
-  buildCg();
-  buildRx();
-  buildDn();
+  showTab(tab);
 }
 
 function setLang(l) {
@@ -39,8 +41,15 @@ function bindControls() {
   $('bd').onchange = build;
   $('sm').onchange = () => { smooth = $('sm').checked; build(); };
   $('clr').onclick = () => { onR.clear(); paint(); build(); };
-  const sl = $('pr');
-  sl.oninput = () => { setP(+sl.value); build(); buildDn(); };
+  $('pr').oninput = () => setIntensity(+$('pr').value);
+  $('shareBtn').onclick = copyLink;
+  $('dlBtn').onclick = downloadChart;
+  // Navigation par l'adresse (liens #sources, #t=dons…, boutons précédent / suivant).
+  window.addEventListener('hashchange', () => {
+    readHash();
+    paint();
+    showTab(tab);
+  });
 }
 
 function init() {
@@ -50,7 +59,10 @@ function init() {
   }
   bindControls();
   setP(1);
+  readHash();
+  $('pr').value = PRES;
   applyLang();
+  urlSync = true;
 }
 
 init();

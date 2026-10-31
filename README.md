@@ -41,6 +41,13 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 ### Historique des versions
 
+**Nouveautés de la version 9 :**
+- **Premier regard allégé :** la page s'ouvre sur Monde + Proclamateurs, avec trois chiffres clés (effectifs 2025, baptêmes 2025, projection 2050), des **vues rapides** (croissance mondiale, baptêmes et départs, heures de prédication, Mémorial, comparaison des continents) et le choix du scénario du modèle en trois boutons (sans pression, centrale, très forte).
+- **Onglets :** Évolution, Congrégations, r/exjw, Dons, Sources. Les 26 boutons de sélection sont rangés par thème dans « Personnaliser le graphique » ; le curseur et le détail du modèle sont dans « Hypothèses du modèle » (panneaux repliés).
+- **Lisibilité :** légende trait plein / pointillé, avis proposant l'échelle logarithmique quand les ordres de grandeur diffèrent trop, 6 repères d'événements sur le graphique (les 10 autres sont repliés), étiquettes de fin de courbe qui ne se chevauchent plus, 14 couleurs distinctes pour les régions.
+- **Partage :** l'adresse de la page mémorise la vue (onglet, régions, données, échelle, scénario, année des dons) ; boutons « Copier le lien de cette vue » et « Télécharger le graphique (PNG) ». Les anciens liens `#methode` ouvrent l'onglet Sources.
+- **Mobile :** en-tête et onglets adaptés, cibles tactiles plus grandes, graphique plus haut. Nouveau fichier : `js/ui/tabs.js`.
+
 **Nouveautés de la version 8 :**
 - **Restructuration du code :** `index.html` ne contient plus que le balisage (≈ 5 Ko au lieu de 139 Ko). Le CSS, les données, le modèle, les textes (français, anglais, espagnol), la méthodologie et l'interface sont répartis dans des fichiers séparés (voir l'arborescence ci-dessous). Aucun changement de comportement : l'affichage a été vérifié identique à la version 7 (3 langues, modes clair et sombre, mobile, tous les contrôles).
 - **Technique :** scripts classiques chargés dans l'ordre (pas de modules ES, pour que le double-clic hors ligne continue de fonctionner). Pour ajouter une langue : créer `js/i18n/<langue>.js` et `docs.<langue>.js`, les déclarer dans `index.html`, et ajouter un drapeau. Pour ajouter une donnée annuelle : `js/data/series.js`.
@@ -59,7 +66,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 
@@ -98,6 +105,13 @@ js/
 
 ### Version History
 
+**New in version 9:**
+- **Lighter first look:** the page opens on World + Publishers, with three key figures (2025 headcount, 2025 baptisms, 2050 projection), **quick views** (worldwide growth, baptisms and exits, preaching hours, Memorial, continent comparison) and the model scenario as three buttons (no pressure, central, very strong).
+- **Tabs:** Trends, Congregations, r/exjw, Donations, Sources. The 26 selection buttons are grouped by theme under “Customise the chart”; the slider and model details sit in “Model assumptions” (collapsed panels).
+- **Readability:** solid/dashed legend, a notice offering the logarithmic scale when magnitudes differ too much, 6 event markers on the chart (the other 10 are collapsed), end-of-line labels that no longer overlap, 14 distinct region colours.
+- **Sharing:** the page address remembers the view (tab, regions, data, scale, scenario, donation year); “Copy link to this view” and “Download the chart (PNG)” buttons. Old `#methode` links open the Sources tab.
+- **Mobile:** adapted header and tabs, larger touch targets, taller chart. New file: `js/ui/tabs.js`.
+
 **New in version 8:**
 - **Code restructuring:** `index.html` now contains only the markup (≈ 5 KB instead of 139 KB). CSS, data, model, texts (French, English, Spanish), methodology and interface code live in separate files (see the tree below). No change in behaviour: the display was checked to be identical to version 7 (3 languages, light and dark modes, mobile, all controls).
 - **Technical:** classic scripts loaded in order (no ES modules, so that offline double-click opening keeps working). To add a language: create `js/i18n/<language>.js` and `docs.<language>.js`, list them in `index.html`, and add a flag. To add an annual data series: `js/data/series.js`.
@@ -116,7 +130,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 
@@ -155,6 +169,13 @@ js/
 
 ### Historial de versiones
 
+**Novedades de la versión 9:**
+- **Primera impresión más ligera:** la página se abre con Mundo + Publicadores, con tres cifras clave (efectivos 2025, bautismos 2025, proyección 2050), **vistas rápidas** (crecimiento mundial, bautismos y salidas, horas de predicación, Conmemoración, comparación de continentes) y el escenario del modelo en tres botones (sin presión, central, muy fuerte).
+- **Pestañas:** Evolución, Congregaciones, r/exjw, Donativos, Fuentes. Los 26 botones de selección se agrupan por tema en «Personalizar el gráfico»; el control deslizante y el detalle del modelo están en «Hipótesis del modelo» (paneles plegados).
+- **Legibilidad:** leyenda línea continua / discontinua, aviso que propone la escala logarítmica cuando las magnitudes difieren demasiado, 6 marcas de acontecimientos en el gráfico (los otros 10 están plegados), etiquetas de fin de curva que ya no se solapan, 14 colores distintos para las regiones.
+- **Compartir:** la dirección de la página recuerda la vista (pestaña, regiones, datos, escala, escenario, año de los donativos); botones «Copiar el enlace de esta vista» y «Descargar el gráfico (PNG)». Los antiguos enlaces `#methode` abren la pestaña Fuentes.
+- **Móvil:** cabecera y pestañas adaptadas, zonas táctiles más grandes, gráfico más alto. Archivo nuevo: `js/ui/tabs.js`.
+
 **Novedades de la versión 8:**
 - **Reestructuración del código:** `index.html` ahora solo contiene el marcado (≈ 5 KB en lugar de 139 KB). El CSS, los datos, el modelo, los textos (francés, inglés, español), la metodología y la interfaz están repartidos en archivos separados (véase el árbol más abajo). Ningún cambio de comportamiento: se comprobó que la visualización es idéntica a la de la versión 7 (3 idiomas, modos claro y oscuro, móvil, todos los controles).
 - **Técnico:** scripts clásicos cargados en orden (sin módulos ES, para que siga funcionando la apertura sin conexión con doble clic). Para añadir un idioma: crear `js/i18n/<idioma>.js` y `docs.<idioma>.js`, declararlos en `index.html` y añadir una bandera. Para añadir una serie anual: `js/data/series.js`.
@@ -173,7 +194,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 

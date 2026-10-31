@@ -53,4 +53,5 @@ function buildDn() {
     `<p class="hint">${tr('dnTot').replace('{t}', usd(tot)).replace('{a}', usd(tot * .65)).replace('{b}', usd(tot * 1.35))}</p>`;
   const B = Object.fromEntries(dnD(2025).map(x => [x.k, x.v]));
   $('dnck').innerHTML = [['ca', tr('dnCa'), 'dnCaT'], ['we', tr('dnUk'), 'dnUkT'], ['oc', tr('dnAu'), 'dnAuT'], ['us', tr('dnUs'), 'dnUsT']].map(([k, n, tx]) => `<div class="sm"><span><b>${n}</b><br><span style="font-size:12px;color:var(--text-secondary)">${tr(tx)}</span></span><span>${tr('model')} :<br>${usd(B[k])}</span></div>`).join('');
+  writeHash();
 }

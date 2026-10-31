@@ -1,11 +1,11 @@
 /**
- * Graphique principal : sélection de régions et de données, échelle, fourchette, curseur d'intensité, lecture du modèle.
+ * Graphique principal : vues rapides, sélection de régions et de données, échelle, fourchette, intensité du modèle, chiffres clés.
  *   onR / onM   régions et données sélectionnées ; mode  échelle (lin, log, idx) ; smooth  lissage des flux
  *   build()     (re)construit le graphique et le résumé ; paint()  met à jour l'état des boutons
  * Dépendances : lib/utils.js, model/*, data/catalog.js, data/events.js, i18n/core.js, ui/format.js, ui/theme.js.
  */
 
-const onR = new Set(['world', 'af', 'eu']);
+const onR = new Set(['world']);
 const onM = new Set(['pub']);
 let mode = 'lin';
 let smooth = true;
@@ -14,11 +14,13 @@ const evP = {
   id: 'ev',
   afterDatasetsDraw(c) {
     const { ctx, chartArea: a, scales: { x } } = c;
-    EVENT_YEARS.forEach((y, i) => {
+    // Repères numérotés des événements-clés.
+    KEY_EVENTS.forEach((ei, n) => {
+      const y = EVENT_YEARS[ei];
       if (y < x.min || y > x.max)
         return;
       const px = x.getPixelForValue(y);
-      const yy = a.top - 46 + (i % 3) * 17;
+      const yy = a.top - 46 + (n % 3) * 17;
       ctx.save();
       ctx.strokeStyle = 'rgba(136,135,129,.4)';
       ctx.lineWidth = 1;
@@ -34,9 +36,10 @@ const evP = {
       ctx.font = '500 11px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(i + 1, px, yy + .5);
+      ctx.fillText(n + 1, px, yy + .5);
       ctx.restore();
     });
+    // Étiquettes de fin de courbe : espacées d'au moins 13 px, et ramenées dans la zone du graphique si elles débordent.
     const Lb = [];
     c.data.datasets.forEach((d, i) => {
       if (d._band)
@@ -44,16 +47,19 @@ const evP = {
       const m = c.getDatasetMeta(i).data;
       const p = m[m.length - 1];
       if (p && isFinite(p.y))
-        Lb.push({
-          y: p.y,
-          t: d._sh,
-          c: d.borderColor
-        });
+        Lb.push({ y: p.y, t: d._sh, c: d.borderColor });
     });
     Lb.sort((p, q) => p.y - q.y);
     for (let i = 1; i < Lb.length; i++)
       if (Lb[i].y - Lb[i - 1].y < 13)
         Lb[i].y = Lb[i - 1].y + 13;
+    const maxY = a.bottom - 4;
+    if (Lb.length && Lb[Lb.length - 1].y > maxY) {
+      Lb[Lb.length - 1].y = maxY;
+      for (let i = Lb.length - 2; i >= 0; i--)
+        if (Lb[i + 1].y - Lb[i].y < 13)
+          Lb[i].y = Lb[i + 1].y - 13;
+    }
     ctx.save();
     ctx.font = '500 11px sans-serif';
     ctx.textAlign = 'left';
@@ -146,6 +152,20 @@ function build() {
       }));
   });
   const s = cur.length ? Math.min(...cur.map(x => x.s)) : 1914;
+  // Avis si les ordres de grandeur sont très différents en échelle linéaire.
+  const mags = cur.map(x => Math.abs(M(x.r.id, 2025, 0, x.m.id))).filter(v => v > 0);
+  const mixed = mode === 'lin' && mags.length > 1 && Math.max(...mags) / Math.min(...mags) > 40;
+  $('unitnote').hidden = !mixed;
+  $('unitnote').innerHTML = mixed ? `<span>${tr('unitNote')}</span><button id="unitbtn">${tr('unitBtn')}</button>` : '';
+  if (mixed)
+    $('unitbtn').onclick = () => {
+      mode = 'log';
+      paint();
+      build();
+    };
+  // Légende : trait plein = observé, pointillé = projection ; les heures sont estimées dès 2024.
+  const hasEst = cur.some(x => x.m.id === 'hrs' || x.m.id === 'hpb');
+  $('leg').innerHTML = `<span><i class="lg solid"></i>${tr('legOfficial')}</span><span><i class="lg dash"></i>${tr('legProj')}</span>` + (hasEst ? `<span>${tr('legEst')}</span>` : '');
   if (ch)
     ch.destroy();
   ch = new Chart($('c'), {
@@ -214,9 +234,12 @@ function build() {
     return `<div class="sm"><span><i style="background:${x.c}"></i>${x.n}</span><span>2025 : ${fk(M(id, 2025, 0, mi))}<br>2050 : ${fk(M(id, 2050, 0, mi))} (${fk(M(id, 2050, -.01, mi))} ${L === 'fr' ? 'à' : L === 'es' ? 'a' : 'to'} ${fk(M(id, 2050, .01, mi))})${sk ? '<br>' + tr('noIdx') : ''}</span></div>`;
   }).join('') : `<p style="font-size:14px;color:var(--text-secondary)">${tr('noSel')}</p>`;
   readout();
+  buildKpis();
+  writeHash();
 }
 
 function paint() {
+  paintExtras();
   const one = onR.size === 1;
   document.querySelectorAll('[data-r]').forEach(b => {
     const x = REG.find(q => q.id === b.dataset.r);
@@ -242,31 +265,108 @@ function paint() {
   });
 }
 
+// Vues rapides : combinaisons prédéfinies de régions, de données et d'échelle.
+const PRESETS = [
+  { id: 'world', key: 'pvWorld', r: ['world'], m: ['pub'], mode: 'lin' },
+  { id: 'bap', key: 'pvBap', r: ['world'], m: ['bap', 'loss'], mode: 'lin' },
+  { id: 'hrs', key: 'pvHrs', r: ['world'], m: ['hrs'], mode: 'lin' },
+  { id: 'mem', key: 'pvMem', r: ['world'], m: ['mem'], mode: 'lin' },
+  { id: 'cont', key: 'pvCont', r: ['af', 'sa', 'cc', 'na', 'eu', 'as', 'oc'], m: ['pub'], mode: 'lin' }
+];
+
+const sameSet = (set, arr) => set.size === arr.length && arr.every(x => set.has(x));
+
+function applyPreset(p) {
+  onR.clear();
+  p.r.forEach(id => onR.add(id));
+  onM.clear();
+  p.m.forEach(id => onM.add(id));
+  mode = p.mode;
+  paint();
+  build();
+}
+
+// Chiffres clés au-dessus du graphique : effectifs et baptêmes 2025 (officiels), projection 2050 du scénario courant.
+function buildKpis() {
+  const yoy = (a, b) => tr('cgYoy').replace('{p}', sgn((a / b - 1) * 100));
+  const lab = [tr('l0'), tr('l1'), tr('l2'), tr('l3'), tr('l4')][PRES === 0 ? 0 : PRES < .75 ? 1 : PRES < 1.25 ? 2 : PRES < 1.75 ? 3 : 4];
+  const proj = tr('kpiProjSub').replace('{s}', lab).replace('{a}', fk(M('world', 2050, -.01, 'pub'))).replace('{b}', fk(M('world', 2050, .01, 'pub')));
+  const cards = [
+    [tr('kpiPub'), fk(AVG(2025)), yoy(AVG(2025), AVG(2024))],
+    [tr('kpiBap'), n0(BAP(2025) * 1000), yoy(BAP(2025), BAP(2024))],
+    [tr('kpiProj'), fk(M('world', 2050, 0, 'pub')), proj]
+  ];
+  $('kpis').innerHTML = cards.map(([l, v, s]) => `<div class="kpi"><div class="kl">${l}</div><div class="kv">${v}</div><div class="ks">${s}</div></div>`).join('');
+}
+
+// État des vues rapides et des boutons d'intensité.
+function paintExtras() {
+  document.querySelectorAll('[data-pv]').forEach(b => {
+    const p = PRESETS.find(q => q.id === b.dataset.pv);
+    const a = p.mode === mode && sameSet(onR, p.r) && sameSet(onM, p.m);
+    b.style.borderColor = a ? 'var(--text-primary)' : '';
+    b.style.background = a ? 'var(--surface-1)' : '';
+    b.style.opacity = a ? 1 : .75;
+    b.setAttribute('aria-pressed', a);
+  });
+  segmented($('pi'), [[0, tr('pI0')], [1, tr('pI1')], [2, tr('pI2')]], PRES, setIntensity);
+}
+
+function setIntensity(p) {
+  setP(p);
+  $('pr').value = p;
+  paint();
+  build();
+}
+
+// Un groupe de boutons avec son titre ; renvoie le conteneur des boutons.
+function groupBox(parent, title) {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = `<span class="gl">${title}</span><div class="bt"></div>`;
+  parent.appendChild(g);
+  return g.querySelector('.bt');
+}
+
 function mkButtons() {
+  $('pv').innerHTML = '';
+  PRESETS.forEach(p => {
+    const b = document.createElement('button');
+    b.dataset.pv = p.id;
+    b.textContent = tr(p.key);
+    b.onclick = () => applyPreset(p);
+    $('pv').appendChild(b);
+  });
   $('gr').innerHTML = '';
   $('gm').innerHTML = '';
   $('md').innerHTML = '';
-  REG.forEach(x => {
-    const b = document.createElement('button');
-    b.dataset.r = x.id;
-    b.innerHTML = `<i></i>${nm(x)}`;
-    b.onclick = () => {
-      onR.has(x.id) ? onR.delete(x.id) : onR.add(x.id);
-      paint();
-      build();
-    };
-    $('gr').appendChild(b);
+  [['world', 'grpWorld'], ['cont', 'grpCont'], ['detail', 'grpDetail'], ['adv', 'grpAdv']].forEach(([g, key]) => {
+    const box = groupBox($('gr'), tr(key));
+    REG.filter(x => x.grp === g).forEach(x => {
+      const b = document.createElement('button');
+      b.dataset.r = x.id;
+      b.innerHTML = `<i></i>${nm(x)}`;
+      b.onclick = () => {
+        onR.has(x.id) ? onR.delete(x.id) : onR.add(x.id);
+        paint();
+        build();
+      };
+      box.appendChild(b);
+    });
   });
-  MET.forEach(x => {
-    const b = document.createElement('button');
-    b.dataset.d = x.id;
-    b.innerHTML = `<u>${x.g}</u>${nm(x)}`;
-    b.onclick = () => {
-      onM.has(x.id) ? onM.delete(x.id) : onM.add(x.id);
-      paint();
-      build();
-    };
-    $('gm').appendChild(b);
+  [['people', 'grpPeople'], ['bap', 'grpBap'], ['out', 'grpOut'], ['act', 'grpAct']].forEach(([g, key]) => {
+    const box = groupBox($('gm'), tr(key));
+    MET.filter(x => x.grp === g).forEach(x => {
+      const b = document.createElement('button');
+      b.dataset.d = x.id;
+      b.innerHTML = `<u>${x.g}</u>${nm(x)}`;
+      b.onclick = () => {
+        onM.has(x.id) ? onM.delete(x.id) : onM.add(x.id);
+        paint();
+        build();
+      };
+      box.appendChild(b);
+    });
   });
   ['lin', 'log', 'idx'].forEach(m => {
     const b = document.createElement('button');
