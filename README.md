@@ -22,7 +22,7 @@ This group was specifically created for **PIMOs (Physically In, Mentally Out)** 
 
 To connect with us safely, scan the QR code below or click the invitation link:
 
-[<img src="simplex-qrcode.png" alt="SimpleX QR Code" width="200"/>](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)
+[<img src="assets/simplex-qrcode.png" alt="SimpleX QR Code" width="200"/>](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)
 
 👉 **[Link: Click here to join the group](https://smp10.simplex.im/g#3Hh8sMnwpASA5TP4J5EeGwwPMIkf2CLghcLsbnc5SVY)**
 
@@ -37,9 +37,30 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Aller aux informations et liens du groupe de soutien sécurisé (SimpleX Chat)](#simplex)*
 
-**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet non requise à l'ouverture (`chart.umd.js` 4.6.1 est désormais hébergé localement). Boutons drapeaux en haut : français / anglais / espagnol.
+**Instructions :** ouvrez `index.html` dans un navigateur (double-clic). Connexion internet non requise à l'ouverture (`js/vendor/chart.umd.js` 4.4.1 est hébergé localement). Boutons drapeaux en haut : français / anglais / espagnol.
 
 ### Historique des versions
+
+**Nouveautés de la version 8 :**
+- **Restructuration du code :** `index.html` ne contient plus que le balisage (≈ 5 Ko au lieu de 139 Ko). Le CSS, les données, le modèle, les textes (français, anglais, espagnol), la méthodologie et l'interface sont répartis dans des fichiers séparés (voir l'arborescence ci-dessous). Aucun changement de comportement : l'affichage a été vérifié identique à la version 7 (3 langues, modes clair et sombre, mobile, tous les contrôles).
+- **Technique :** scripts classiques chargés dans l'ordre (pas de modules ES, pour que le double-clic hors ligne continue de fonctionner). Pour ajouter une langue : créer `js/i18n/<langue>.js` et `docs.<langue>.js`, les déclarer dans `index.html`, et ajouter un drapeau. Pour ajouter une donnée annuelle : `js/data/series.js`.
+- **Déplacements :** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+
+**Structure du projet :**
+
+```
+index.html              page (balisage uniquement) / markup only / solo el marcado
+css/                    base.css (thème, typographie) · components.css (composants)
+assets/                 simplex-qrcode.png
+js/
+  vendor/chart.umd.js   Chart.js 4.4.1 (local)
+  lib/                  utils.js (interpolation, accès aux séries, $)
+  data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
+  model/                params.js · hours.js · history.js · simulation.js · donations.js
+  i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  app.js                point d'entrée / entry point / punto de entrada
+```
 
 **Nouveautés de la version 7 :**
 - **Graphique principal :** deux nouvelles données sélectionnables, « Heures de prédication » (total annuel : officiel 1962-2023, estimé ensuite car les proclamateurs ne déclarent plus leurs heures) et « Heures par baptême ». Projection 2026-2050 par modèle, jamais lissées.
@@ -72,9 +93,30 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Go to the secure support group links and info (SimpleX Chat)](#simplex)*
 
-**Instructions:** open `index.html` in a browser (double-click). Internet connection not required on opening (`chart.umd.js` 4.6.1 is now hosted locally). Flag buttons at the top: French / English / Spanish.
+**Instructions:** open `index.html` in a browser (double-click). Internet connection not required on opening (`js/vendor/chart.umd.js` 4.4.1 is hosted locally). Flag buttons at the top: French / English / Spanish.
 
 ### Version History
+
+**New in version 8:**
+- **Code restructuring:** `index.html` now contains only the markup (≈ 5 KB instead of 139 KB). CSS, data, model, texts (French, English, Spanish), methodology and interface code live in separate files (see the tree below). No change in behaviour: the display was checked to be identical to version 7 (3 languages, light and dark modes, mobile, all controls).
+- **Technical:** classic scripts loaded in order (no ES modules, so that offline double-click opening keeps working). To add a language: create `js/i18n/<language>.js` and `docs.<language>.js`, list them in `index.html`, and add a flag. To add an annual data series: `js/data/series.js`.
+- **Moves:** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+
+**Project structure:**
+
+```
+index.html              page (balisage uniquement) / markup only / solo el marcado
+css/                    base.css (thème, typographie) · components.css (composants)
+assets/                 simplex-qrcode.png
+js/
+  vendor/chart.umd.js   Chart.js 4.4.1 (local)
+  lib/                  utils.js (interpolation, accès aux séries, $)
+  data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
+  model/                params.js · hours.js · history.js · simulation.js · donations.js
+  i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  app.js                point d'entrée / entry point / punto de entrada
+```
 
 **New in version 7:**
 - **Main chart:** two new selectable data types, "Preaching hours" (annual total: official 1962-2023, estimated afterwards because publishers no longer report hours) and "Hours per baptism". 2026-2050 projection by model, never smoothed.
@@ -107,9 +149,30 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 👉 *[Ir a la información y enlaces del grupo de apoyo seguro (SimpleX Chat)](#simplex)*
 
-**Instrucciones:** abra `index.html` en un navegador (doble clic). No se requiere conexión a internet para abrirlo (`chart.umd.js` 4.6.1 ahora está alojado localmente). Botones de banderas en la parte superior: francés / inglés / español.
+**Instrucciones:** abra `index.html` en un navegador (doble clic). No se requiere conexión a internet para abrirlo (`js/vendor/chart.umd.js` 4.4.1 está alojado localmente). Botones de banderas en la parte superior: francés / inglés / español.
 
 ### Historial de versiones
+
+**Novedades de la versión 8:**
+- **Reestructuración del código:** `index.html` ahora solo contiene el marcado (≈ 5 KB en lugar de 139 KB). El CSS, los datos, el modelo, los textos (francés, inglés, español), la metodología y la interfaz están repartidos en archivos separados (véase el árbol más abajo). Ningún cambio de comportamiento: se comprobó que la visualización es idéntica a la de la versión 7 (3 idiomas, modos claro y oscuro, móvil, todos los controles).
+- **Técnico:** scripts clásicos cargados en orden (sin módulos ES, para que siga funcionando la apertura sin conexión con doble clic). Para añadir un idioma: crear `js/i18n/<idioma>.js` y `docs.<idioma>.js`, declararlos en `index.html` y añadir una bandera. Para añadir una serie anual: `js/data/series.js`.
+- **Cambios de ubicación:** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+
+**Estructura del proyecto:**
+
+```
+index.html              page (balisage uniquement) / markup only / solo el marcado
+css/                    base.css (thème, typographie) · components.css (composants)
+assets/                 simplex-qrcode.png
+js/
+  vendor/chart.umd.js   Chart.js 4.4.1 (local)
+  lib/                  utils.js (interpolation, accès aux séries, $)
+  data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
+  model/                params.js · hours.js · history.js · simulation.js · donations.js
+  i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js
+  app.js                point d'entrée / entry point / punto de entrada
+```
 
 **Novedades de la versión 7:**
 - **Gráfico principal:** dos nuevos datos seleccionables, «Horas de predicación» (total anual: oficial 1962-2023, estimado después porque los publicadores ya no informan sus horas) y «Horas por bautismo». Proyección 2026-2050 por modelo, nunca suavizada.
