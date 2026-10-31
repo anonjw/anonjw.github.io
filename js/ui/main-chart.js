@@ -292,7 +292,7 @@ function buildKpis() {
   const lab = [tr('l0'), tr('l1'), tr('l2'), tr('l3'), tr('l4')][PRES === 0 ? 0 : PRES < .75 ? 1 : PRES < 1.25 ? 2 : PRES < 1.75 ? 3 : 4];
   const proj = tr('kpiProjSub').replace('{s}', lab).replace('{a}', fk(M('world', 2050, -.01, 'pub'))).replace('{b}', fk(M('world', 2050, .01, 'pub')));
   const cards = [
-    [tr('kpiPub'), fk(AVG(2025)), yoy(AVG(2025), AVG(2024))],
+    [tr('kpiPub'), fk(M('world', 2025, 0, 'pub')), yoy(M('world', 2025, 0, 'pub'), M('world', 2024, 0, 'pub'))],
     [tr('kpiBap'), n0(BAP(2025) * 1000), yoy(BAP(2025), BAP(2024))],
     [tr('kpiProj'), fk(M('world', 2050, 0, 'pub')), proj]
   ];

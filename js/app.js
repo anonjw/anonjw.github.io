@@ -43,7 +43,17 @@ function bindControls() {
   $('clr').onclick = () => { onR.clear(); paint(); build(); };
   $('pr').oninput = () => setIntensity(+$('pr').value);
   $('shareBtn').onclick = copyLink;
-  $('dlBtn').onclick = downloadChart;
+  // Menu « Exporter » et onglet Export.
+  const act = (id, fn) => { $(id).onclick = () => { $('expMenu').open = false; fn(); }; };
+  act('expPng', downloadChart);
+  act('expCsvView', () => exportData('view', 'csv'));
+  act('expJsonView', () => exportData('view', 'json'));
+  act('expCsvAll', () => exportData('all', 'csv'));
+  act('expJsonAll', () => exportData('all', 'json'));
+  $('expBtnCsv').onclick = () => exportData('all', 'csv');
+  $('expBtnJson').onclick = () => exportData('all', 'json');
+  document.addEventListener('click', e => { if ($('expMenu').open && !$('expMenu').contains(e.target)) $('expMenu').open = false; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') $('expMenu').open = false; });
   // Navigation par l'adresse (liens #sources, #t=dons…, boutons précédent / suivant).
   window.addEventListener('hashchange', () => {
     readHash();

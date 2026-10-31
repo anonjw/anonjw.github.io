@@ -41,6 +41,11 @@ To connect with us safely, scan the QR code below or click the invitation link:
 
 ### Historique des versions
 
+**Nouveautés de la version 10 :**
+- **Menu « Exporter » :** un ruban déroulant regroupe l'image du graphique (PNG), la **vue en cours** (CSV ou JSON : régions, données et projections affichées, lissage inclus si activé) et **toutes les données** (CSV ou JSON).
+- **Nouvel onglet « Export » :** à côté de Sources, il télécharge la totalité des données présentées (évolution, congrégations, r/exjw, dons ≈ 15 500 lignes), avec le contenu du fichier, les colonnes et les statuts (`official`, `derived`, `estimate`, `observed`, `interpolated`, `projection`).
+- **Correction :** le chiffre clé « Proclamateurs en 2025 » est maintenant le pic annuel (9,21 M, +1,8 %), comme la courbe du graphique, et non la moyenne mensuelle. Nouveau fichier : `js/ui/export.js`.
+
 **Nouveautés de la version 9 :**
 - **Premier regard allégé :** la page s'ouvre sur Monde + Proclamateurs, avec trois chiffres clés (effectifs 2025, baptêmes 2025, projection 2050), des **vues rapides** (croissance mondiale, baptêmes et départs, heures de prédication, Mémorial, comparaison des continents) et le choix du scénario du modèle en trois boutons (sans pression, centrale, très forte).
 - **Onglets :** Évolution, Congrégations, r/exjw, Dons, Sources. Les 26 boutons de sélection sont rangés par thème dans « Personnaliser le graphique » ; le curseur et le détail du modèle sont dans « Hypothèses du modèle » (panneaux repliés).
@@ -66,7 +71,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · export.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 
@@ -105,6 +110,11 @@ js/
 
 ### Version History
 
+**New in version 10:**
+- **“Export” menu:** a dropdown ribbon groups the chart image (PNG), the **current view** (CSV or JSON: regions, data and projections shown, smoothing included if enabled) and **all data** (CSV or JSON).
+- **New “Export” tab:** next to Sources, it downloads all the data shown (trends, congregations, r/exjw, donations, ≈ 15,500 rows), with the file contents, columns and statuses (`official`, `derived`, `estimate`, `observed`, `interpolated`, `projection`).
+- **Fix:** the “Publishers in 2025” key figure is now the yearly peak (9.21M, +1.8%), like the chart curve, not the monthly average. New file: `js/ui/export.js`.
+
 **New in version 9:**
 - **Lighter first look:** the page opens on World + Publishers, with three key figures (2025 headcount, 2025 baptisms, 2050 projection), **quick views** (worldwide growth, baptisms and exits, preaching hours, Memorial, continent comparison) and the model scenario as three buttons (no pressure, central, very strong).
 - **Tabs:** Trends, Congregations, r/exjw, Donations, Sources. The 26 selection buttons are grouped by theme under “Customise the chart”; the slider and model details sit in “Model assumptions” (collapsed panels).
@@ -130,7 +140,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · export.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 
@@ -169,6 +179,11 @@ js/
 
 ### Historial de versiones
 
+**Novedades de la versión 10:**
+- **Menú «Exportar»:** una cinta desplegable agrupa la imagen del gráfico (PNG), la **vista actual** (CSV o JSON: regiones, datos y proyecciones mostrados, con suavizado si está activado) y **todos los datos** (CSV o JSON).
+- **Nueva pestaña «Exportar»:** junto a Fuentes, descarga todos los datos presentados (evolución, congregaciones, r/exjw, donativos, ≈ 15 500 filas), con el contenido del archivo, las columnas y los estados (`official`, `derived`, `estimate`, `observed`, `interpolated`, `projection`).
+- **Corrección:** la cifra clave «Publicadores en 2025» es ahora el pico anual (9,21 M, +1,8 %), como la curva del gráfico, y no la media mensual. Archivo nuevo: `js/ui/export.js`.
+
 **Novedades de la versión 9:**
 - **Primera impresión más ligera:** la página se abre con Mundo + Publicadores, con tres cifras clave (efectivos 2025, bautismos 2025, proyección 2050), **vistas rápidas** (crecimiento mundial, bautismos y salidas, horas de predicación, Conmemoración, comparación de continentes) y el escenario del modelo en tres botones (sin presión, central, muy fuerte).
 - **Pestañas:** Evolución, Congregaciones, r/exjw, Donativos, Fuentes. Los 26 botones de selección se agrupan por tema en «Personalizar el gráfico»; el control deslizante y el detalle del modelo están en «Hipótesis del modelo» (paneles plegados).
@@ -194,7 +209,7 @@ js/
   data/                 series.js (séries officielles) · regions.js · events.js · reddit.js · catalog.js
   model/                params.js · hours.js · history.js · simulation.js · donations.js
   i18n/                 core.js · fr.js · en.js · es.js · docs.fr.js · docs.en.js · docs.es.js
-  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · tabs.js (onglets, URL)
+  ui/                   theme.js · format.js · widgets.js · main-chart.js · section-*.js · export.js · tabs.js (onglets, URL)
   app.js                point d'entrée / entry point / punto de entrada
 ```
 

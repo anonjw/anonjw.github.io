@@ -22,7 +22,16 @@
 <nav class="tabs" id="tabs" role="tablist"></nav>
 <div class="toolbar">
 <button id="shareBtn" data-t="shareBtn"></button>
-<button id="dlBtn" data-t="dlBtn"></button>
+<details class="menu" id="expMenu">
+<summary data-t="expMenu"></summary>
+<div class="menulist">
+<button id="expPng" data-view data-t="expPng"></button>
+<button id="expCsvView" data-view data-t="expCsvView"></button>
+<button id="expJsonView" data-view data-t="expJsonView"></button>
+<button id="expCsvAll" data-t="expCsvAll"></button>
+<button id="expJsonAll" data-t="expJsonAll"></button>
+</div>
+</details>
 </div>
 
 <!-- Onglet : évolution (graphique principal) -->
@@ -109,6 +118,19 @@
 <div class="tabpanel" id="tab-sources" data-tab="sources" role="tabpanel" hidden>
 <section id="methode" class="doc"></section>
 </div>
+
+<!-- Onglet : export de la totalité des données -->
+<div class="tabpanel" id="tab-export" data-tab="export" role="tabpanel" hidden>
+<h2 data-t="hExp"></h2>
+<p class="intro" id="expIntro"></p>
+<div class="bt"><button id="expBtnCsv" data-t="expBtnCsv"></button><button id="expBtnJson" data-t="expBtnJson"></button></div>
+<div class="cap" data-t="expContents"></div>
+<div id="expInfo"></div>
+<h3 data-t="expFormat"></h3>
+<p class="hint" data-t="expCols"></p>
+<p class="hint" data-t="expStatus"></p>
+<p class="hint" data-t="expSrc"></p>
+</div>
 </main>
 
 <script src="js/vendor/chart.umd.js"></script>
@@ -137,6 +159,7 @@
 <script src="js/ui/section-congregations.js"></script>
 <script src="js/ui/section-reddit.js"></script>
 <script src="js/ui/section-donations.js"></script>
+<script src="js/ui/export.js"></script>
 <script src="js/ui/tabs.js"></script>
 <script src="js/app.js"></script>
 </body>

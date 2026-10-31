@@ -1,11 +1,11 @@
 /**
- * Onglets, état partageable dans l'adresse de la page (hash) et barre d'outils (copier le lien, télécharger l'image).
+ * Onglets, état partageable dans l'adresse de la page (hash) et barre d'outils (copier le lien, export).
  * Adresse type : #t=evolution&r=world,af&d=pub&m=lin&p=1  (t onglet, r régions, d données, m échelle, p intensité,
  * s=0 sans lissage, b=1 fourchette, y année des dons, x échelle r/exjw). Les anciens liens #methode et #sources ouvrent l'onglet Sources.
- * Dépendances : ui/main-chart.js, ui/section-*.js, i18n/core.js, data/catalog.js, ui/widgets.js.
+ * Dépendances : ui/main-chart.js, ui/section-*.js, ui/export.js, i18n/core.js, data/catalog.js, ui/widgets.js.
  */
 
-const TABS = [['evolution', 'tabEvo'], ['congregations', 'tabCg'], ['reddit', 'tabRx'], ['dons', 'tabDn'], ['sources', 'tabSrc']];
+const TABS = [['evolution', 'tabEvo'], ['congregations', 'tabCg'], ['reddit', 'tabRx'], ['dons', 'tabDn'], ['sources', 'tabSrc'], ['export', 'tabExp']];
 
 // Reconstruction du contenu d'un onglet à son affichage (les graphiques masqués ne sont pas construits).
 const TAB_BUILD = {
@@ -13,10 +13,11 @@ const TAB_BUILD = {
   congregations: () => buildCg(),
   reddit: () => buildRx(),
   dons: () => buildDn(),
-  sources: () => {}
+  sources: () => {},
+  export: () => buildExport()
 };
 const TAB_CANVAS = { evolution: 'c', congregations: 'cgc', reddit: 'rxc', dons: 'dnc' };
-const TAB_ALIAS = { methode: 'sources', sources: 'sources', evolution: 'evolution', congregations: 'congregations', reddit: 'reddit', dons: 'dons' };
+const TAB_ALIAS = { methode: 'sources', sources: 'sources', evolution: 'evolution', congregations: 'congregations', reddit: 'reddit', dons: 'dons', export: 'export' };
 
 let tab = 'evolution';
 let urlSync = false;  // l'adresse n'est modifiée qu'après le premier affichage
@@ -34,6 +35,10 @@ function mkTabs() {
     b.onclick = () => showTab(id);
     nav.appendChild(b);
   });
+  // Garde l'onglet courant visible quand la barre défile (mobile).
+  const sel = nav.querySelector('[aria-selected="true"]');
+  if (sel)
+    nav.scrollLeft = sel.offsetLeft - (nav.clientWidth - sel.offsetWidth) / 2;
 }
 
 function showTab(id) {
@@ -42,7 +47,7 @@ function showTab(id) {
     p.hidden = p.dataset.tab !== tab;
   });
   mkTabs();
-  $('dlBtn').hidden = !TAB_CANVAS[tab];
+  updateExportMenu();
   TAB_BUILD[tab]();
   writeHash();
 }
