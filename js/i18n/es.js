@@ -128,7 +128,6 @@ TX.es = {
     'Doctrina: se redefine la «generación» de 1914',
     'Doctrina: las fracciones sanguíneas se dejan a la conciencia',
     'Doctrina: «esclavo fiel» = solo el Cuerpo Gobernante',
-    'Comisión Real australiana: 1006 presuntos agresores y unas 1800 presuntas víctimas en los expedientes de 1950-2014',
     'Prohibición en Rusia',
     'Covid: se acaba el puerta a puerta, reuniones en línea; bautismos en mínimos en 2021-22',
     'Guerra en Ucrania',
@@ -147,5 +146,5 @@ TX.es = {
     '≈ sep.-oct. 2026 (fecha supuesta) · 130 K, +14,7 % en un año'
   ],
   rxUnit: 'suscriptores',
-  note: 'Línea discontinua = extrapolación 2026-2050 del modelo con la intensidad elegida (no es una previsión oficial). El rango bajo / alto suma o resta un punto de crecimiento anual. Unidad: miles de publicadores, de personas por año (bautismos, defunciones, salidas) o de estudios al mes; para la Conmemoración, personas presentes en el año. Publicadores, bautismos, estudios y asistencia a la Conmemoración: series anuales oficiales para el mundo (1962-2025) e informe por país para 2025; antes de 2025, el reparto regional es un modelo (valores regionales aproximados, ± 10-15 %). Defunciones, expulsiones, abandonos y parte interna: estimaciones; los valores negativos de los abandonos indican reactivaciones netas. No existe ningún recuento público mundial de las denuncias: no se representan. Europa: sin Rusia ni Bielorrusia, que el informe no detalla. Horas de predicación: totales oficiales hasta 2023 (último año publicado); desde 2024, estimadas, porque los publicadores ya no declaran sus horas; horas por bautismo = horas ÷ bautismos, en miles de horas (6,4 = 6400 horas).'
+  note: 'Línea discontinua = extrapolación 2026-2050 del modelo con la intensidad elegida (no es una previsión oficial). El rango bajo / alto suma o resta un punto de crecimiento anual. Unidad: miles de publicadores, de personas por año (bautismos, defunciones, salidas) o de estudios al mes; para la Conmemoración, personas presentes en el año. Publicadores, bautismos, estudios y asistencia a la Conmemoración: series anuales oficiales para el mundo (1962-2025) e informe por país para 2025; antes de 2025, el reparto regional es un modelo (valores regionales aproximados, ± 10-15 %). Defunciones, expulsiones, abandonos y parte interna: estimaciones; los valores negativos de los abandonos indican reactivaciones netas. Europa: sin Rusia ni Bielorrusia, que el informe no detalla. Horas de predicación: totales oficiales hasta 2023 (último año publicado); desde 2024, estimadas, porque los publicadores ya no declaran sus horas; horas por bautismo = horas ÷ bautismos, en miles de horas (6,4 = 6400 horas).'
 };

@@ -128,7 +128,6 @@ TX.en = {
     'Doctrine: 1914 “generation” redefined',
     'Doctrine: blood fractions left to conscience',
     'Doctrine: “faithful slave” = Governing Body only',
-    'Australian Royal Commission: 1,006 alleged perpetrators and about 1,800 alleged victims in files for 1950-2014',
     'Ban in Russia',
     'Covid: door-to-door stops, online meetings; baptisms at a low in 2021-22',
     'War in Ukraine',
@@ -147,5 +146,5 @@ TX.en = {
     '≈ Sep-Oct 2026 (assumed date) · 130K, +14.7% a year'
   ],
   rxUnit: 'subscribers',
-  note: 'Dashed = 2026-2050 extrapolation from the model at the chosen intensity (not an official forecast). The low / high range adds or removes one point of annual growth. Unit: thousands of publishers, of people per year (baptisms, deaths, exits) or of studies per month; for the Memorial, of people present in the year. Publishers, baptisms, studies and Memorial attendance: official annual series for the world (1962-2025) and the per-country report for 2025; before 2025 the regional split is modelled (regional values approximate, ± 10-15%). Deaths, disfellowshippings, voluntary exits and the internal share are estimates; negative values for voluntary exits indicate net reactivations. No public worldwide count of complaints exists, so they are not plotted. Europe excludes Russia and Belarus, which the report does not itemise. Preaching hours: official totals up to 2023 (the last year published); 2024 onwards estimated, because publishers no longer report their hours; hours per baptism = hours ÷ baptisms, shown in thousands of hours (6.4 = 6,400 hours).'
+  note: 'Dashed = 2026-2050 extrapolation from the model at the chosen intensity (not an official forecast). The low / high range adds or removes one point of annual growth. Unit: thousands of publishers, of people per year (baptisms, deaths, exits) or of studies per month; for the Memorial, of people present in the year. Publishers, baptisms, studies and Memorial attendance: official annual series for the world (1962-2025) and the per-country report for 2025; before 2025 the regional split is modelled (regional values approximate, ± 10-15%). Deaths, disfellowshippings, voluntary exits and the internal share are estimates; negative values for voluntary exits indicate net reactivations. Europe excludes Russia and Belarus, which the report does not itemise. Preaching hours: official totals up to 2023 (the last year published); 2024 onwards estimated, because publishers no longer report their hours; hours per baptism = hours ÷ baptisms, shown in thousands of hours (6.4 = 6,400 hours).'
 };

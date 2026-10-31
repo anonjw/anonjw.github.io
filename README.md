@@ -45,6 +45,7 @@ To connect with us safely, scan the QR code below or click the invitation link:
 - **Restructuration du code :** `index.html` ne contient plus que le balisage (≈ 5 Ko au lieu de 139 Ko). Le CSS, les données, le modèle, les textes (français, anglais, espagnol), la méthodologie et l'interface sont répartis dans des fichiers séparés (voir l'arborescence ci-dessous). Aucun changement de comportement : l'affichage a été vérifié identique à la version 7 (3 langues, modes clair et sombre, mobile, tous les contrôles).
 - **Technique :** scripts classiques chargés dans l'ordre (pas de modules ES, pour que le double-clic hors ligne continue de fonctionner). Pour ajouter une langue : créer `js/i18n/<langue>.js` et `docs.<langue>.js`, les déclarer dans `index.html`, et ajouter un drapeau. Pour ajouter une donnée annuelle : `js/data/series.js`.
 - **Déplacements :** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+- **Contenu retiré :** l'événement 2015 (commission royale australienne) et la mention des plaintes dans la note sous le graphique.
 
 **Structure du projet :**
 
@@ -101,6 +102,7 @@ js/
 - **Code restructuring:** `index.html` now contains only the markup (≈ 5 KB instead of 139 KB). CSS, data, model, texts (French, English, Spanish), methodology and interface code live in separate files (see the tree below). No change in behaviour: the display was checked to be identical to version 7 (3 languages, light and dark modes, mobile, all controls).
 - **Technical:** classic scripts loaded in order (no ES modules, so that offline double-click opening keeps working). To add a language: create `js/i18n/<language>.js` and `docs.<language>.js`, list them in `index.html`, and add a flag. To add an annual data series: `js/data/series.js`.
 - **Moves:** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+- **Content removed:** the 2015 event (Australian Royal Commission) and the mention of complaints in the note under the chart.
 
 **Project structure:**
 
@@ -157,6 +159,7 @@ js/
 - **Reestructuración del código:** `index.html` ahora solo contiene el marcado (≈ 5 KB en lugar de 139 KB). El CSS, los datos, el modelo, los textos (francés, inglés, español), la metodología y la interfaz están repartidos en archivos separados (véase el árbol más abajo). Ningún cambio de comportamiento: se comprobó que la visualización es idéntica a la de la versión 7 (3 idiomas, modos claro y oscuro, móvil, todos los controles).
 - **Técnico:** scripts clásicos cargados en orden (sin módulos ES, para que siga funcionando la apertura sin conexión con doble clic). Para añadir un idioma: crear `js/i18n/<idioma>.js` y `docs.<idioma>.js`, declararlos en `index.html` y añadir una bandera. Para añadir una serie anual: `js/data/series.js`.
 - **Cambios de ubicación:** `chart.umd.js` → `js/vendor/`, `simplex-qrcode.png` → `assets/`.
+- **Contenido retirado:** el evento de 2015 (comisión real australiana) y la mención de las denuncias en la nota bajo el gráfico.
 
 **Estructura del proyecto:**
 

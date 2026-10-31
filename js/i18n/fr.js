@@ -128,7 +128,6 @@ TX.fr = {
     'Doctrine : « génération » de 1914 redéfinie',
     'Doctrine : fractions sanguines laissées à la conscience',
     'Doctrine : « esclave fidèle » = Collège central seul',
-    'Commission royale australienne : 1 006 agresseurs présumés et environ 1 800 victimes présumées dans les dossiers 1950-2014',
     'Interdiction en Russie',
     'Covid : fin du porte-à-porte, réunions en ligne ; baptêmes au plus bas en 2021-22',
     'Guerre en Ukraine',
@@ -147,5 +146,5 @@ TX.fr = {
     '≈ sept.-oct. 2026 (date supposée) · 130 K, +14,7 % sur un an'
   ],
   rxUnit: 'abonnés',
-  note: 'Pointillé = extrapolation 2026-2050 du modèle à l’intensité choisie (ce n’est pas une prévision officielle). La fourchette bas / haut ajoute ou retire un point de croissance par an. Unité : milliers de proclamateurs, de personnes par an (baptêmes, décès, sorties) ou d’études par mois ; pour le Mémorial, de personnes présentes dans l’année. Proclamateurs, baptêmes, études et assistance au Mémorial : séries annuelles officielles pour le monde (1962-2025) et rapport par pays pour 2025 ; avant 2025, la répartition régionale est un modèle (valeurs régionales approximatives à ± 10-15 %). Décès, exclusions, abandons et part interne : estimations ; les valeurs négatives des abandons signalent des réactivations nettes. Aucun décompte mondial public des plaintes n’existe : elles ne sont pas tracées. Europe : hors Russie et Biélorussie, non détaillées dans le rapport. Heures de prédication : totaux officiels jusqu’en 2023 (dernière année publiée) ; 2024 et après estimés, car les proclamateurs ne déclarent plus leurs heures ; heures par baptême = heures ÷ baptêmes, affichées en milliers d’heures (6,4 = 6 400 heures).'
+  note: 'Pointillé = extrapolation 2026-2050 du modèle à l’intensité choisie (ce n’est pas une prévision officielle). La fourchette bas / haut ajoute ou retire un point de croissance par an. Unité : milliers de proclamateurs, de personnes par an (baptêmes, décès, sorties) ou d’études par mois ; pour le Mémorial, de personnes présentes dans l’année. Proclamateurs, baptêmes, études et assistance au Mémorial : séries annuelles officielles pour le monde (1962-2025) et rapport par pays pour 2025 ; avant 2025, la répartition régionale est un modèle (valeurs régionales approximatives à ± 10-15 %). Décès, exclusions, abandons et part interne : estimations ; les valeurs négatives des abandons signalent des réactivations nettes. Europe : hors Russie et Biélorussie, non détaillées dans le rapport. Heures de prédication : totaux officiels jusqu’en 2023 (dernière année publiée) ; 2024 et après estimés, car les proclamateurs ne déclarent plus leurs heures ; heures par baptême = heures ÷ baptêmes, affichées en milliers d’heures (6,4 = 6 400 heures).'
 };
